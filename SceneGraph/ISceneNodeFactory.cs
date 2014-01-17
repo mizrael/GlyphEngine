@@ -19,13 +19,13 @@ namespace GlyphEngine.SceneGraph
 {
     public interface ISceneNodeFactory
     {
-        ISceneNode Get(string templateName, ISceneNode parent);
+        SceneNode Get(string templateName, SceneNode parent);
 
         void Load(ContentManager cm, string asset);
     }
 
     public abstract class SceneNodeFactoryBase<NodeT, TemplT> : ISceneNodeFactory
-        where NodeT : ISceneNode //, new()
+        where NodeT : SceneNode //, new()
         where TemplT : class, ISceneNodeDecorator<NodeT>//, new()
     {
         #region Members
@@ -47,7 +47,7 @@ namespace GlyphEngine.SceneGraph
 
         #region Methods
 
-        public ISceneNode Get(string templateName, ISceneNode parent)
+        public SceneNode Get(string templateName, SceneNode parent)
         {
             NodeT retVal = null;
             TemplT template = null;

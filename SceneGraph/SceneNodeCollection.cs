@@ -13,19 +13,19 @@ using GlyphEngine.Components;
 
 namespace GlyphEngine.SceneGraph
 {  
-    public class SceneNodeCollection : IEnumerable<ISceneNode>
+    public class SceneNodeCollection : IEnumerable<SceneNode>
     {
-        private List<ISceneNode> _nodes = new List<ISceneNode>();
-        private ISceneNode _owner = null;
+        private List<SceneNode> _nodes = new List<SceneNode>();
+        private SceneNode _owner = null;
 
-        public SceneNodeCollection(ISceneNode owner)
+        public SceneNodeCollection(SceneNode owner)
         {
             if (null == owner)
                 throw new ArgumentNullException();
             _owner = owner;
         }
 
-        public IEnumerator<ISceneNode> GetEnumerator()
+        public IEnumerator<SceneNode> GetEnumerator()
         {
             return _nodes.GetEnumerator();
         }
@@ -39,7 +39,7 @@ namespace GlyphEngine.SceneGraph
         /// adds a node to the collection and sets parent->child relation
         /// </summary>
         /// <param name="node"></param>
-        internal void Add(ISceneNode node)
+        internal void Add(SceneNode node)
         {
             if (null != node.Father && _owner != node.Father)
                 this.Remove(node);
@@ -52,7 +52,7 @@ namespace GlyphEngine.SceneGraph
         /// removes a node from the collection and unsets parent->child relation
         /// </summary>
         /// <param name="node"></param>
-        internal bool Remove(ISceneNode node)
+        internal bool Remove(SceneNode node)
         {
             if (_nodes.Remove(node))
             {

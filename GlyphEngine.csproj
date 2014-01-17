@@ -124,7 +124,7 @@
     <Compile Include="Utils\Orientation.cs" />
     <Compile Include="Utils\Pool.cs" />
     <Compile Include="SceneGraph\SceneNodeCollection.cs" />
-    <Compile Include="SceneGraph\ISceneNode.cs" />
+    <Compile Include="SceneGraph\SceneNode.cs" />
     <Compile Include="AI\AIStateMachine.cs" />
     <Compile Include="Services\ISceneGraphService.cs" />
     <Compile Include="Services\RenderService.cs" />

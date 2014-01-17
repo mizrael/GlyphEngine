@@ -21,7 +21,7 @@ namespace GlyphEngine.Components
 
         #endregion Members
 
-        public CollisionComponent(ISceneNode owner, Action<ISceneNode> responseFunc)
+        public CollisionComponent(SceneNode owner, Action<SceneNode> responseFunc)
             : base(owner)
         {
             ResponseFunc = responseFunc;
@@ -102,8 +102,8 @@ namespace GlyphEngine.Components
 
         #region Properties
 
-        public Action<ISceneNode> ResponseFunc = null;
-        public Func<ISceneNode, bool> CheckCollisionFunc = null;
+        public Action<SceneNode> ResponseFunc = null;
+        public Func<SceneNode, bool> CheckCollisionFunc = null;
 
         #endregion Properties
     }

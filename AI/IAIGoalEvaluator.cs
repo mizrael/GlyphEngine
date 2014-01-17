@@ -9,7 +9,7 @@ namespace GlyphEngine.AI.Evaluators
 {
     public interface IAIGoalEvaluator
     {
-        float Evaluate(ISceneNode node);
-        void SetGoal(ISceneNode node);
+        float Evaluate(SceneNode node);
+        void SetGoal(SceneNode node);
     }
 }

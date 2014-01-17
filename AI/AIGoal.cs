@@ -21,7 +21,7 @@ namespace GlyphEngine.AI
     {
         #region Methods
 
-        public void Activate(ISceneNode owner)
+        public void Activate(SceneNode owner)
         {
             this.Owner = owner;
             this.Status = AIGoalStatus.Running;
@@ -56,7 +56,7 @@ namespace GlyphEngine.AI
 
         #region Properties
 
-        public ISceneNode Owner { get; private set; }
+        public SceneNode Owner { get; private set; }
 
         public AIGoalStatus Status { get; protected set; }
 

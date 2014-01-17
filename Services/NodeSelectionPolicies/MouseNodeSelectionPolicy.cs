@@ -21,7 +21,7 @@ namespace GlyphEngine.Services.NodeSelectionPolicies
              _renderServ = _renderServ ?? ScreenManager.Instance.Game.Services.GetService<RenderService>();
         }
 
-        public bool Check(ISceneNode node)
+        public bool Check(SceneNode node)
         {
             var renderComp = node.Components.Get<RenderComponent>();
             if (null != renderComp && renderComp.Visible && null != renderComp.Model)
@@ -45,14 +45,14 @@ namespace GlyphEngine.Services.NodeSelectionPolicies
 
     public class ColorHighlightPolicy : INodeSelectionHighlightPolicy
     {
-        public void Highlight(ISceneNode node)
+        public void Highlight(SceneNode node)
         {
             var renderComp = node.Components.Get<RenderComponent>();
             if (null != renderComp)
                 renderComp.Color = this.HighlightColor;    
         }
 
-        public void Undo(ISceneNode node)
+        public void Undo(SceneNode node)
         {
             var renderComp = node.Components.Get<RenderComponent>();
             if (null != renderComp)

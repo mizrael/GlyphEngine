@@ -26,7 +26,7 @@ namespace GlyphEngine.AI
 
     public class AIStateMachine
     {
-        public AIStateMachine(ISceneNode owner)
+        public AIStateMachine(SceneNode owner)
         {
             this.Owner = owner;
         }
@@ -61,7 +61,7 @@ namespace GlyphEngine.AI
 
         #region Properties
 
-        public readonly ISceneNode Owner = null;
+        public readonly SceneNode Owner = null;
 
         public AIStateBase CurrentState
         {

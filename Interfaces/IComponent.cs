@@ -14,7 +14,7 @@ namespace GlyphEngine.Interfaces
 {
     public abstract class IComponent
     {
-        public IComponent(ISceneNode owner)
+        public IComponent(SceneNode owner)
         {
             if (null == (Owner = owner))
                 throw new ArgumentNullException();
@@ -30,7 +30,7 @@ namespace GlyphEngine.Interfaces
 
         public abstract void Dispose();
 
-        public readonly ISceneNode Owner = null;
+        public readonly SceneNode Owner = null;
 
         public bool Active = true;
 

@@ -42,7 +42,7 @@ namespace GlyphEngine.Services
                 this.SelectedNodes.ForEach(n => this.SelectionHighlightPolicy.Highlight(n));
         }
 
-        private void AddNode(ISceneNode node)
+        private void AddNode(SceneNode node)
         {
             if (0 == this.SelectedNodes.Count || this.AllowMultipleSelection)
                 this.SelectedNodes.Add(node);
@@ -51,7 +51,7 @@ namespace GlyphEngine.Services
                 this.SelectionHighlightPolicy.Highlight(node);
         }
 
-        private bool RecurseCheck(ISceneNode node)
+        private bool RecurseCheck(SceneNode node)
         {
             if (null != node && node.Active)
             {
@@ -68,7 +68,7 @@ namespace GlyphEngine.Services
             return false;
         }
 
-        private bool CheckNode(ISceneNode node)
+        private bool CheckNode(SceneNode node)
         {
             return null != node.Components.Get<SelectionComponent>() && this.SelectionPolicies.TrueForAll(p => p.Check(node));
         }
@@ -78,7 +78,7 @@ namespace GlyphEngine.Services
         public readonly List<INodeSelectionPolicy> SelectionPolicies = new List<INodeSelectionPolicy>();
         public INodeSelectionHighlightPolicy SelectionHighlightPolicy = null;
 
-        public readonly List<ISceneNode> SelectedNodes = new List<ISceneNode>();
+        public readonly List<SceneNode> SelectedNodes = new List<SceneNode>();
         public bool AllowMultipleSelection = false;
 
         #endregion Properties
@@ -88,12 +88,12 @@ namespace GlyphEngine.Services
     {
         void FrameInit(GameTime gameTime);
 
-        bool Check(ISceneNode node);
+        bool Check(SceneNode node);
     }
 
     public interface INodeSelectionHighlightPolicy
     {
-        void Highlight(ISceneNode node);
-        void Undo(ISceneNode node);
+        void Highlight(SceneNode node);
+        void Undo(SceneNode node);
     }
 }

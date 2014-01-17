@@ -25,7 +25,7 @@ namespace GlyphEngine.Services
 
         private Queue<SpaceHashObject> _removableObjects = null;
         private List<SpaceHashObject> _objsList = null;
-        private Dictionary<ISceneNode, SpaceHashObject> _objectsDict = null;
+        private Dictionary<SceneNode, SpaceHashObject> _objectsDict = null;
 
         private Dictionary<int, HashSet<SpaceHashObject>> _buckets = null;
 
@@ -57,7 +57,7 @@ namespace GlyphEngine.Services
 
             _removableObjects = new Queue<SpaceHashObject>();
             _objsList = new List<SpaceHashObject>();
-            _objectsDict = new Dictionary<ISceneNode, SpaceHashObject>();
+            _objectsDict = new Dictionary<SceneNode, SpaceHashObject>();
 
             _buckets = new Dictionary<int, HashSet<SpaceHashObject>>(_cols * _rows);
             for (int i = 0; i != _cols * _rows; ++i)
@@ -66,7 +66,7 @@ namespace GlyphEngine.Services
             }
         }
 
-        public bool RegisterEntity(ISceneNode entity, ref Point size)
+        public bool RegisterEntity(SceneNode entity, ref Point size)
         {
             var transf = entity.Components.Get<TransformComponent>();
             if (null != transf)
@@ -151,7 +151,7 @@ namespace GlyphEngine.Services
          //   Clear();
         }
 
-        public List<ISceneNode> GetNearby(ISceneNode node)
+        public List<SceneNode> GetNearby(SceneNode node)
         {
             SpaceHashObject obj = null;
             if (!_objectsDict.TryGetValue(node, out obj))
@@ -247,12 +247,12 @@ namespace GlyphEngine.Services
 
         #region Properties
 
-        public ISceneNode Owner = null;
+        public SceneNode Owner = null;
         public TransformComponent Transform = null;
         public Point Size = Point.Zero;        
         public Vector2 OldPosition = Vector2.Zero;
 
-        public List<ISceneNode> NearbyObjects = new List<ISceneNode>();
+        public List<SceneNode> NearbyObjects = new List<SceneNode>();
         public Vector2[] CheckPoints = new Vector2[4];
         public HashSet<int> BucketsObjIsIn = new HashSet<int>();
 

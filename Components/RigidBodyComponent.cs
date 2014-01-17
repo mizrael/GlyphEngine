@@ -23,7 +23,7 @@ namespace GlyphEngine.Components
         
         #endregion Members
 
-        public RigidBodyComponent(ISceneNode owner) : base(owner)
+        public RigidBodyComponent(SceneNode owner) : base(owner)
         {            
         }
 

@@ -22,7 +22,7 @@ namespace GlyphEngine.Components
 
         #endregion Members
 
-        public TransformComponent(ISceneNode owner)
+        public TransformComponent(SceneNode owner)
             : base(owner)
         {       
         }

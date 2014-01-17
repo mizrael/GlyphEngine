@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GlyphEngine.SceneGraph
 {
-    public sealed class DummyNode : ISceneNode
+    public sealed class DummyNode : SceneNode
     {
     }
 }

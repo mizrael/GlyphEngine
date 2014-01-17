@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GlyphEngine.SceneGraph
 {
-    public interface ISceneNodeDecorator<T> where T : ISceneNode
+    public interface ISceneNodeDecorator<T> where T : SceneNode
     {
         void Decorate(T obj);
     }

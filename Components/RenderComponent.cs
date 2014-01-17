@@ -22,7 +22,7 @@ namespace GlyphEngine.Components
 
         #endregion Members
 
-        public RenderComponent(ISceneNode owner)
+        public RenderComponent(SceneNode owner)
             : base(owner)
         {           
         }

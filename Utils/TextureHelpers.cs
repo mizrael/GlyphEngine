@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-
-using GlyphEngine.Core;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GlyphEngine.Utils
 {
@@ -14,6 +11,8 @@ namespace GlyphEngine.Utils
         const int DEFAULT_INNER_TRANSITION_WIDTH = 1;
         const int DEFAULT_OUTER_TRANSITION_WIDTH = 0;
         const int DEFAULT_BORDER_WIDTH = 1;
+
+        private static Dictionary<string, Texture2D> _loadedTextureCache = new Dictionary<string, Texture2D>();
 
         // Lines
         public static Texture2D CreateLineTexture(GraphicsDevice graphicsDevice, int lineThickness, Color color)
@@ -127,7 +126,7 @@ namespace GlyphEngine.Utils
         public static Texture2D CreateRectangleTexture(GraphicsDevice graphicsDevice, int width, int height, int borderWidth, int borderInnerTransitionWidth, int borderOuterTransitionWidth, Color color, Color borderColor)
         {
             Texture2D texture2D = new Texture2D(graphicsDevice, width, height, true, SurfaceFormat.Color);
-
+            
             //Texture2D texture2D = new Texture2D(graphicsDevice, 2, lineWidth + 2);
             int x;
             int y = -1;
@@ -385,6 +384,24 @@ namespace GlyphEngine.Utils
             {
                 throw ex;
             }
+        }
+
+        public static Texture2D LoadTexture(GraphicsDevice device, string asset) {
+            Texture2D texture = null;
+            if (_loadedTextureCache.TryGetValue(asset, out texture))
+                return texture;
+
+            using (var texStream = System.IO.File.OpenRead(asset))
+            {
+                texture = Texture2D.FromStream(device, texStream);
+                if (null != texture)
+                {
+                    _loadedTextureCache.Add(asset, texture);
+                    return texture;
+                }
+            }
+
+            return null;
         }
 
         #endregion

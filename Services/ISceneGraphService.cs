@@ -17,21 +17,21 @@ namespace GlyphEngine.Services
 {
     public interface ISceneGraphService : IGameComponent
     {
-        void AddNode(ISceneNode node, ISceneNode parent);
-        void RemoveNode(ISceneNode node);
-        ISceneNode FindNodeByID(int id);
-        ISceneNode FindNode(ref Point point);
-        ISceneNode Root { get; }
+        void AddNode(SceneNode node, SceneNode parent);
+        void RemoveNode(SceneNode node);
+        SceneNode FindNodeByID(int id);
+        SceneNode FindNode(ref Point point);
+        SceneNode Root { get; }
     }
 
     public class SceneGraphService : GameComponent, ISceneGraphService
     {
         #region Members
 
-        private ISceneNode _root = null;
-        private HashSet<ISceneNode> _nodes = null; //used for fast lookup
-        private Queue<Pair<ISceneNode, ISceneNode>> _addQueue = null;
-        private Queue<ISceneNode> _removalQueue = null;
+        private SceneNode _root = null;
+        private HashSet<SceneNode> _nodes = null; //used for fast lookup
+        private Queue<Pair<SceneNode, SceneNode>> _addQueue = null;
+        private Queue<SceneNode> _removalQueue = null;
 
         private int _addStep = 0;
         private int _removalStep = 0;
@@ -42,9 +42,9 @@ namespace GlyphEngine.Services
             : base(game)
         {
         
-            _addQueue = new Queue<Pair<ISceneNode, ISceneNode>>();
-            _removalQueue = new Queue<ISceneNode>();
-            _nodes = new HashSet<ISceneNode>();
+            _addQueue = new Queue<Pair<SceneNode, SceneNode>>();
+            _removalQueue = new Queue<SceneNode>();
+            _nodes = new HashSet<SceneNode>();
 
             game.Services.AddService(typeof(ISceneGraphService), this);
         }
@@ -66,12 +66,12 @@ namespace GlyphEngine.Services
         /// </summary>
         /// <param name="node"></param>
         /// <param name="parent">if null the new node will be added as root.</param>
-        public void AddNode(ISceneNode node, ISceneNode parent)
+        public void AddNode(SceneNode node, SceneNode parent)
         {
-            _addQueue.Enqueue(new Pair<ISceneNode, ISceneNode>(node, parent));
+            _addQueue.Enqueue(new Pair<SceneNode, SceneNode>(node, parent));
         }
 
-        public void RemoveNode(ISceneNode node)
+        public void RemoveNode(SceneNode node)
         {
             if (null != node)
             {
@@ -81,13 +81,13 @@ namespace GlyphEngine.Services
             }
         }
 
-        public ISceneNode FindNodeByID(int id)
+        public SceneNode FindNodeByID(int id)
         {
         //    return _nodes.Where(n => n.ID == id).FirstOrDefault();
             return FindNodeByID(id, _root);
         }
 
-        public ISceneNode FindNode(ref Point worldPoint)
+        public SceneNode FindNode(ref Point worldPoint)
         {
             return FindNode(ref worldPoint, this.Root);
         }
@@ -168,7 +168,7 @@ namespace GlyphEngine.Services
             }
         }
         
-        private ISceneNode FindNodeByID(int id, ISceneNode root)
+        private SceneNode FindNodeByID(int id, SceneNode root)
         {
             if (null != root)
             {
@@ -177,7 +177,7 @@ namespace GlyphEngine.Services
 
                 if (null != root.Children && 0 != root.Children.Count())
                 {
-                    ISceneNode node = null;
+                    SceneNode node = null;
                     foreach (var c in root.Children)
                     {
                         if(null != (node = FindNodeByID(id, c)))
@@ -188,7 +188,7 @@ namespace GlyphEngine.Services
             return null;
         }
 
-        private ISceneNode FindNode(ref Point worldPoint, ISceneNode father)
+        private SceneNode FindNode(ref Point worldPoint, SceneNode father)
         {
             if (null != father && father.Active)
             {
@@ -208,7 +208,7 @@ namespace GlyphEngine.Services
                         trasfBounds.Contains(ref worldPoint, out result);
                         if (result)
                         {
-                            ISceneNode node = null;
+                            SceneNode node = null;
                             foreach (var c in father.Children)
                             {
                                 if (null != (node = FindNode(ref worldPoint, c)))
@@ -220,7 +220,7 @@ namespace GlyphEngine.Services
                 }
                 else
                 {
-                    ISceneNode node = null;
+                    SceneNode node = null;
                     foreach (var c in father.Children)
                     {
                         if (null != (node = FindNode(ref worldPoint, c)))
@@ -236,7 +236,7 @@ namespace GlyphEngine.Services
 
         #region Properties
 
-        public ISceneNode Root { get { return _root; } }
+        public SceneNode Root { get { return _root; } }
 
         #endregion Properties
     }

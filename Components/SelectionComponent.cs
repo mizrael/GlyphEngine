@@ -15,7 +15,7 @@ namespace GlyphEngine.Components
 {
     public class SelectionComponent : IComponent
     {
-        public SelectionComponent(ISceneNode owner)
+        public SelectionComponent(SceneNode owner)
             :base(owner)
         {            
         }
