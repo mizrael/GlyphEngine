@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework;
-
-using GlyphEngine.Components;
+﻿using GlyphEngine.Components;
 using GlyphEngine.Core;
+using GlyphEngine.Extensions;
 using GlyphEngine.GameScreens;
-using GlyphEngine.Utils;
 using GlyphEngine.SceneGraph;
+using GlyphEngine.Utils;
+using Microsoft.Xna.Framework;
 
 namespace GlyphEngine.Services.NodeSelectionPolicies
 {
@@ -49,18 +45,21 @@ namespace GlyphEngine.Services.NodeSelectionPolicies
 
     public class ColorHighlightPolicy : INodeSelectionHighlightPolicy
     {
-        public void Hightlight(ISceneNode node)
+        public void Highlight(ISceneNode node)
         {
             var renderComp = node.Components.Get<RenderComponent>();
             if (null != renderComp)
-                renderComp.Color = Color.Red;    
+                renderComp.Color = this.HighlightColor;    
         }
 
         public void Undo(ISceneNode node)
         {
             var renderComp = node.Components.Get<RenderComponent>();
             if (null != renderComp)
-                renderComp.Color = Color.White;
+                renderComp.Color = this.BaseColor;
         }
+
+        public Color HighlightColor = Color.Red;
+        public Color BaseColor = Color.White;
     }
 }

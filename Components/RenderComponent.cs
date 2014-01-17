@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using GlyphEngine.Core;
-using GlyphEngine.Components;
+using GlyphEngine.Effects;
+using GlyphEngine.Extensions;
+using GlyphEngine.GameScreens;
 using GlyphEngine.Interfaces;
 using GlyphEngine.SceneGraph;
-using GlyphEngine.Utils;
-using GlyphEngine.GameScreens;
 using GlyphEngine.Services;
-using GlyphEngine.Effects;
+using GlyphEngine.Utils;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace GlyphEngine.Components
 {

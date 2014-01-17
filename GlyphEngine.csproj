@@ -118,9 +118,9 @@
     <Compile Include="Services\RenderSortingPolicies\YRenderSortingPolicy.cs" />
     <Compile Include="Services\SpatialHashService.cs" />
     <Compile Include="Effects\Effect.cs" />
-    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Extensions\GameServiceContainerExtensions.cs" />
     <Compile Include="Utils\LambaComparer.cs" />
-    <Compile Include="Utils\MathUtils.cs" />
+    <Compile Include="Extensions\MathExtensions.cs" />
     <Compile Include="Utils\Orientation.cs" />
     <Compile Include="Utils\Pool.cs" />
     <Compile Include="SceneGraph\SceneNodeCollection.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="Services\RenderService.cs" />
     <Compile Include="Utils\FontHelpers.cs" />
     <Compile Include="Core\CurveInstance.cs" />
-    <Compile Include="Utils\Primitives2D.cs" />
+    <Compile Include="Extensions\SpriteBatchPrimitives2DExtensions.cs" />
     <Compile Include="Utils\TextureHelpers.cs" />
     <Compile Include="Utils\Helpers.cs" />
     <Compile Include="Core\InputManager.cs" />

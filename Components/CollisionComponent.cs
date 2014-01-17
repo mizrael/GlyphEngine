@@ -1,13 +1,11 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
-
+using GlyphEngine.Extensions;
+using GlyphEngine.GameScreens;
 using GlyphEngine.Interfaces;
 using GlyphEngine.SceneGraph;
-using GlyphEngine.Components;
-using GlyphEngine.Core;
-using GlyphEngine.GameScreens;
 using GlyphEngine.Services;
 using GlyphEngine.Utils;
+using Microsoft.Xna.Framework;
 
 namespace GlyphEngine.Components
 {

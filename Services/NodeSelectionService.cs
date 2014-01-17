@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
-
-using GlyphEngine.Interfaces;
-using GlyphEngine.SceneGraph;
 using GlyphEngine.Components;
-using GlyphEngine.Utils;
+using GlyphEngine.Extensions;
+using GlyphEngine.SceneGraph;
+using Microsoft.Xna.Framework;
 
 namespace GlyphEngine.Services
 {
@@ -47,7 +39,7 @@ namespace GlyphEngine.Services
             }
 
             if (null != this.SelectionHighlightPolicy && this.SelectedNodes.Any())
-                this.SelectedNodes.ForEach(n => this.SelectionHighlightPolicy.Hightlight(n));
+                this.SelectedNodes.ForEach(n => this.SelectionHighlightPolicy.Highlight(n));
         }
 
         private void AddNode(ISceneNode node)
@@ -56,7 +48,7 @@ namespace GlyphEngine.Services
                 this.SelectedNodes.Add(node);
 
             if (null != this.SelectionHighlightPolicy)
-                this.SelectionHighlightPolicy.Hightlight(node);
+                this.SelectionHighlightPolicy.Highlight(node);
         }
 
         private bool RecurseCheck(ISceneNode node)
@@ -101,7 +93,7 @@ namespace GlyphEngine.Services
 
     public interface INodeSelectionHighlightPolicy
     {
-        void Hightlight(ISceneNode node);
+        void Highlight(ISceneNode node);
         void Undo(ISceneNode node);
     }
 }
