@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectGuid>{7E514934-C0A8-46B2-A57D-11F7F44CEA4D}</ProjectGuid>
+    <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlyphEngine</RootNamespace>
+    <AssemblyName>GlyphEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
+    <XnaPlatform>Windows</XnaPlatform>
+    <XnaCrossPlatformGroupID>2f4141bd-d6de-494c-a031-90c5a6092a20</XnaCrossPlatformGroupID>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <XnaUpgrade>
+    </XnaUpgrade>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XnaOutputType>Library</XnaOutputType>
+    <XnaProfile>HiDef</XnaProfile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>false</XnaCompressContent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <XnaCompressContent>True</XnaCompressContent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Avatar, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.GamerServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="Microsoft.Xna.Framework.Input.Touch, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Storage, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Video, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Xna.Framework.Xact, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
+    <Reference Include="mscorlib">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AI\AIGoal.cs" />
+    <Compile Include="AI\IAIGoalEvaluator.cs" />
+    <Compile Include="AI\Pathfinder.cs" />
+    <Compile Include="AI\PriorityQueue.cs" />
+    <Compile Include="Components\CollisionComponent.cs" />
+    <Compile Include="Components\ComponentCollection.cs" />
+    <Compile Include="Components\SelectionComponent.cs" />
+    <Compile Include="Components\TransformComponent.cs" />
+    <Compile Include="Components\RenderComponent.cs" />
+    <Compile Include="Effects\Fade.cs" />
+    <Compile Include="Interfaces\IUpdatable.cs" />
+    <Compile Include="Interfaces\IComponent.cs" />
+    <Compile Include="SceneGraph\DummyNode.cs" />
+    <Compile Include="SceneGraph\ISceneNodeFactory.cs" />
+    <Compile Include="SceneGraph\ISceneNodeTemplate.cs" />
+    <Compile Include="Scripting\BaseScript.cs" />
+    <Compile Include="Services\NodeSelectionPolicies\MouseNodeSelectionPolicy.cs" />
+    <Compile Include="Services\NodeSelectionService.cs" />
+    <Compile Include="Services\ICollisionSystem.cs" />
+    <Compile Include="Services\IPartitioningService.cs" />
+    <Compile Include="Services\ISceneNodeFactoryService.cs" />
+    <Compile Include="Services\RenderSortingPolicies\YRenderSortingPolicy.cs" />
+    <Compile Include="Services\SpatialHashService.cs" />
+    <Compile Include="Effects\Effect.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\LambaComparer.cs" />
+    <Compile Include="Utils\MathUtils.cs" />
+    <Compile Include="Utils\Orientation.cs" />
+    <Compile Include="Utils\Pool.cs" />
+    <Compile Include="SceneGraph\SceneNodeCollection.cs" />
+    <Compile Include="SceneGraph\ISceneNode.cs" />
+    <Compile Include="AI\AIStateMachine.cs" />
+    <Compile Include="Services\ISceneGraphService.cs" />
+    <Compile Include="Services\RenderService.cs" />
+    <Compile Include="Utils\FontHelpers.cs" />
+    <Compile Include="Core\CurveInstance.cs" />
+    <Compile Include="Utils\Primitives2D.cs" />
+    <Compile Include="Utils\TextureHelpers.cs" />
+    <Compile Include="Utils\Helpers.cs" />
+    <Compile Include="Core\InputManager.cs" />
+    <Compile Include="Utils\Pair.cs" />
+    <Compile Include="Utils\RenderHelpers.cs" />
+    <Compile Include="Utils\Singleton.cs" />
+    <Compile Include="GameScreens\GameScreen.cs" />
+    <Compile Include="GameScreens\ScreenManager.cs" />
+    <Compile Include="Interfaces\IRenderable.cs" />
+    <Compile Include="Core\Trasform.cs" />
+    <Compile Include="Components\RigidBodyComponent.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprite\SpriteAnimation.cs" />
+    <Compile Include="Sprite\AnimatedSpriteInstance.cs" />
+    <Compile Include="Sprite\SpriteInstance.cs" />
+    <Compile Include="Sprite\SpriteSheet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="Content\Content.contentproj">
+      <Project>90e69664-b7b5-4eea-ba60-f009a158369d</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft XNA Framework Redistributable 4.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Content\GlyphEngineContent.contentproj">
+      <Project>{90E69664-B7B5-4EEA-BA60-F009A158369D}</Project>
+      <Name>GlyphEngineContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
